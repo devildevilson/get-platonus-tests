@@ -14,4 +14,4 @@ DATABASE_NAME="platonus_db_name"
 Usage:
 `node index.js <testid1> [<testid2> ...]`
 
-Tests writes to file in Aiken format, if the user needs "<question><variant>" format, use flag `-p`
+Tests writes to file in Aiken format, if the user needs `<question><variant>` format, use flag `-p`
