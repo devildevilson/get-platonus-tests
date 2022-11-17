@@ -1,6 +1,7 @@
 # get-platonus-tests
 
 Script gets tests from platonus. The platonus doesnt have option to download existing tests
+
 To use script user nedds to setup `.env` file like this:
 
 ```
