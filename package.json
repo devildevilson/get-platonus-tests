@@ -1,0 +1,17 @@
+{
+  "name": "get_platonus_test",
+  "version": "1.0.0",
+  "description": "get tests by id from platonus and dump it to aiken format (or platinus format)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andrew Lemeshev",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "@mysql/xdevapi": "8.0.31",
+    "args-parser": "^1.3.0",
+    "dotenv": "^16.0.3",
+    "mysql": "^2.18.1"
+  }
+}
