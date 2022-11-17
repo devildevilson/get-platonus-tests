@@ -138,7 +138,6 @@ const config = {
   user     : process.env.DATABASE_USER,
   password : process.env.DATABASE_PASSWORD,
   database : process.env.DATABASE_NAME,
-  //socketPath: '/var/run/mysqld/mysqld.sock',
 };
 
 var connection = mysql.createConnection(config);
