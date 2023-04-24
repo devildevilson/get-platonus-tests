@@ -215,9 +215,10 @@ const query = util.promisify(connection.query).bind(connection);
         info_str = test_id + "";
       }
 
-      await fs.open(output_file, "w");
-      await fs.writeFile(output_file, output);
+      const f = await fs.open(output_file, "w");
+      await fs.writeFile(f, output);
       console.info("Test '" + info_str + "' created");
+      await f.close();
     }
 
     if (!atleast_once) console.log("At lest one test id must be specified");
