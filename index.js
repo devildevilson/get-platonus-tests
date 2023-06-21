@@ -123,6 +123,10 @@ if (args.a || args.aiken) {
   current_maker_func = make_question_platonus;
 }
 
+function make_valid_str(str) {
+  return str.replaceAll("\"", "_");
+}
+
 // i hope table names in platonus are shared between organizations 
 const SQL_QUERY_TEST_ROWS_STRING = "SELECT q.question , o.answer, o.isRight FROM openanswers o JOIN questions q ON o.questionID = q.questionID WHERE q.testID = ";
 const SQL_QUERY_TEST_NAME_STRING = `
@@ -199,13 +203,13 @@ const query = util.promisify(connection.query).bind(connection);
       let output_file = "";
       if (valid_test_metadata(test_name)) 
       {
-        output_file = test_name[0].cafedraNameRU + " " + test_name[0].testName + ".txt";
+        output_file = make_valid_str(test_name[0].cafedraNameRU + " " + test_name[0].testName) + ".txt";
         info_str = test_name[0].testName;
       }
       else if (valid_test_name(test_name)) 
       {
         console.warn("Could not find cafedra name for test " + test_id);
-        output_file = test_name[0].testName + ".txt";
+        output_file = make_valid_str(test_name[0].testName) + ".txt";
         info_str = test_name[0].testName;
       }
       else
@@ -215,6 +219,7 @@ const query = util.promisify(connection.query).bind(connection);
         info_str = test_id + "";
       }
 
+      output_file = output_file.replaceAll("\\", "_").replaceAll("/", "_").replaceAll(",", "_");
       const f = await fs.open(output_file, "w");
       await fs.writeFile(f, output);
       console.info("Test '" + info_str + "' created");
