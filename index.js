@@ -1,5 +1,5 @@
 require('dotenv').config();
-const mysql = require("mysql");
+const mysql = require("mysql2");
 const args = require('args-parser')(process.argv);
 const fs = require("fs").promises;
 const util = require('util');
@@ -81,7 +81,7 @@ function make_question_platonus(q_obj)
   if (q_obj.q == undefined) return "";
   let str = Q_str + q_obj.q + "\n";
 
-  let answer_str = V_str + q_obj.variants[q_obj.answer]; // right answer is first
+  let answer_str = V_str + q_obj.variants[q_obj.answer] + "\n"; // right answer is first
   str = str + answer_str; 
 
   for (let j = 0; j < q_obj.variants.length; ++j) 
